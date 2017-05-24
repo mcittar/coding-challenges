@@ -13,7 +13,7 @@ let arr = [[-1, 1, -1, 0, 0, 0],
 [0, 0, -1, -2, -4, 0]];
 
 function main() {
-    let greatest;
+    let greatest = Number.NEGATIVE_INFINITY;
     let hourglass;
     for(let row = 0; row < arr.length - 2; row++){
         for(let col = 0; col < arr[row].length - 2; col++){
@@ -22,13 +22,9 @@ function main() {
             let right = col + 2;
             let mid = col + 1;
             hourglass = arr[row][col] + arr[row][mid] + arr[row][right] + arr[stem][mid] + arr[bottom][col] + arr[bottom][mid] + arr[bottom][right];
-            if (greatest || greatest === 0) {
               if (hourglass > greatest){
                 greatest = hourglass;
               }
-            } else {
-              greatest = hourglass;
-            }
         }
     }
     console.log(greatest);
