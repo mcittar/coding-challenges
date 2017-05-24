@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    function makeButtons() {
+      for (var i = 1; i < 11; i++) {
+        let button = document.createElement("BUTTON");
+        let text = document.createTextNode(`${i}`);
+        button.id = `${i}`;
+        button.appendChild(text);
+        document.body.appendChild(button);
+        document.getElementById(`${i}`).onclick = function() {
+                                                 alert(`${button.id}`);
+                                             };
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      makeButtons();
+    });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
