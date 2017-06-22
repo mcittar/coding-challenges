@@ -11,7 +11,7 @@ end
 
 class BinarySearchTree
   def initialize
-
+    @root = nil
   end
 
   def insert(value)
