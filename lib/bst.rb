@@ -15,7 +15,7 @@ class BinarySearchTree
   end
 
   def insert(value)
-
+    @root.nil? ? @root = BSTNode.new(value) : BinarySearchTree.insert!(@root, value)
   end
 
   def find(value)
