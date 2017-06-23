@@ -15,11 +15,15 @@ class BinarySearchTree
   end
 
   def insert(value)
-    @root.nil? ? @root = BSTNode.new(value) : BinarySearchTree.insert!(@root, value)
+    if @root.nil?
+      @root = BSTNode.new(value)
+      return
+    end
+    BinarySearchTree.insert!(@root, value)
   end
 
   def find(value)
-
+    BinarySearchTree.find!(value)
   end
 
   def inorder
@@ -39,11 +43,11 @@ class BinarySearchTree
   end
 
   def min
-
+    BinarySearchTree.min(@root)
   end
 
   def max
-
+    BinarySearchTree.max(@root)
   end
 
   def delete(value)
@@ -51,11 +55,20 @@ class BinarySearchTree
   end
 
   def self.insert!(node, value)
+    return BSTNode.new(value) unless node
 
+    if value > node.value
+      node.right = BinarySearchTree.insert!(node.right, value)
+    else
+      node.left = BinarySearchTree.insert!(node.left, value)
+    end
+
+    node
   end
 
   def self.find!(node, value)
-
+    return nil unless node
+    return node if node.value == value
   end
 
   def self.preorder!(node)
@@ -75,11 +88,13 @@ class BinarySearchTree
   end
 
   def self.max(node)
-
+    return node if node.right.nil?
+    BinarySearchTree.max(node.right)
   end
 
   def self.min(node)
-
+    return node if node.left.nil?
+    BinarySearchTree.min(node.left)
   end
 
   def self.delete_min!(node)
@@ -90,3 +105,10 @@ class BinarySearchTree
 
   end
 end
+
+hash = Hash.new
+node = BSTNode.new(0)
+node2 = BSTNode.new(0)
+hash[node] = true
+p hash[node2]
+p hash[node]
