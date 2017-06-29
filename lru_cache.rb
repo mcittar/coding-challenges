@@ -81,3 +81,8 @@ cache.get(100)
 test4 = []
 cache.hash.each_key { |k| test4 << k }
 p test4
+
+cache.get(1000)
+test5 = []
+cache.hash.each_key { |k| test5 << k }
+p test5
