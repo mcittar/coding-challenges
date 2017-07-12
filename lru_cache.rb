@@ -41,8 +41,7 @@ class LRUCache
 
   def check_cache_size
     if @hash.count > @max
-      remove_link = @tail.prev
-      remove_link.remove_self
+      @tail.prev.remove_self
       @hash.delete(remove_link.value)
     end
   end
